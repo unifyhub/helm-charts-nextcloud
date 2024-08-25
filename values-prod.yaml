@@ -1,0 +1,74 @@
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
+  hosts:
+    - host: nextcloud.unifyhub.dev
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: tls-unifyhub-dev
+      hosts:
+        - nextcloud.unifyhub.dev
+
+persistence:
+  enabled: true
+  storageClass: longhorn-hdd  # Corrected key name
+  accessMode: ReadWriteOnce
+  size: 100Gi
+
+nextcloud:
+  host: nextcloud.unifyhub.dev
+  username: admin
+  password: changeme  # Replace with a secure password
+  datadir: /var/www/html/data
+  trustedDomains:
+    - nextcloud.unifyhub.dev
+  objectStore:
+    s3:
+      enabled: true
+      host: cluster-minio-console.minio-stack.cluster.local
+      accessKey: "Ey0QBBu2el2b99yXWKLY"
+      secretKey: "99sL0dSrvggEfd3AP1ey784JORDpEZeVgYsZ7d9E"
+      bucket: "nextcloud"
+      ssl: true
+      usePathStyle: true
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+livenessProbe:
+  enabled: true
+  initialDelaySeconds: 120
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 5
+  successThreshold: 1
+
+readinessProbe:
+  enabled: true
+  initialDelaySeconds: 120
+  periodSeconds: 20
+  timeoutSeconds: 5
+  failureThreshold: 5
+  successThreshold: 1
+
+mariadb:
+  enabled: true
+  auth:
+    rootPassword: strong-root-password  # Replace with a strong root password
+    database: nextcloud
+    username: nextcloud
+    password: changeme  # Replace with a strong database password
+  primary:
+    persistence:
+      enabled: true
+      size: 10Gi
+      storageClass: longhorn-ssd
