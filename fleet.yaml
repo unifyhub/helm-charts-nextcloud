@@ -1,0 +1,14 @@
+namespace: nextcloud-stack
+helm:
+  chart: charts/nextcloud
+  releaseName: nextcloud
+
+targetCustomizations:
+- name: prod
+  helm:
+    releaseName: nextcloud
+    valuesFiles:
+      - values-prod.yaml
+  clusterSelector:
+    matchLabels:
+      env: prod
