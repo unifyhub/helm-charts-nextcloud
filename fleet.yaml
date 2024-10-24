@@ -35,7 +35,7 @@ helm:
       objectStore:
         s3:
           enabled: true
-          host: cluster-minio-console.minio-stack.cluster.local
+          host: minio.krp.unifyhub.dev
           accessKey: "Ey0QBBu2el2b99yXWKLY"
           secretKey: "99sL0dSrvggEfd3AP1ey784JORDpEZeVgYsZ7d9E"
           bucket: "nextcloud"
