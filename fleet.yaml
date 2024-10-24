@@ -11,7 +11,7 @@ namespaceAnnotations:
   owner: devops-team
 
 helm:
-  chart: .
+  chart: ./charts/nextcloud
   releaseName: nextcloud
   values:
     ingress:
