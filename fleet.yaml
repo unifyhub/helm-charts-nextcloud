@@ -23,7 +23,7 @@ helm:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
 
     nextcloud:
-      host: nextcloud.krp.unifyhub.dev
+      host: nextcloud.hub.unifyhub.dev
       username: admin
       password: changeme  # Replace with a secure password
       objectStore:
