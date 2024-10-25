@@ -1,0 +1,27 @@
+{{- if (eq .Values.ingress.className "traefik") }}
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: nextcloud-redirectregex
+  namespace: {{ .Release.Namespace }}
+spec:
+  redirectRegex:
+    regex: "^https://(.*)/.well-known/(card|cal)dav"
+    replacement: "https://$1/remote.php/dav"
+    permanent: true
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: nextcloud-security-headers
+  namespace: {{ .Release.Namespace }}
+spec:
+  headers:
+    stsSeconds: 15552000
+    frameDeny: true
+    browserXssFilter: true
+    contentTypeNosniff: true
+    forceSTSHeader: true
+    sslRedirect: true
+{{- end }}
