@@ -34,12 +34,10 @@ helm:
           enabled: true
           accessKey: "Ey0QBBu2el2b99yXWKLY"   # Your MinIO access key
           secretKey: "99sL0dSrvggEfd3AP1ey784JORDpEZeVgYsZ7d9E"  # Your MinIO secret key
-          host: "minio.krp.unifyhub.dev"  # MinIO endpoint without "https://"
+          host: "s3.krp.unifyhub.dev"  # MinIO endpoint without "https://"
           ssl: true
           port: "443"  # Ensure the correct port is used (443 for HTTPS)
-          region: "eu-west-1"
           bucket: "nextcloud"  # Your MinIO bucket name
-          prefix: ""
           usePathStyle: true  # Set true if you're not using DNS-style buckets (as in MinIO)
           autoCreate: true
     resources:
