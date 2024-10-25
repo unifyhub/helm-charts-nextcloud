@@ -20,11 +20,6 @@ helm:
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
 
-    persistence:
-      enabled: true
-      accessMode: ReadWriteOnce
-      size: 50Gi
-
     nextcloud:
       host: nextcloud.krp.unifyhub.dev
       username: admin
@@ -42,17 +37,17 @@ helm:
           autoCreate: true
     resources:
       requests:
-        cpu: 100m
-        memory: 256Mi
+        cpu: 1
+        memory: 2Gi
       limits:
-        cpu: 500m
-        memory: 512Mi
+        cpu: 2
+        memory: 4Gi
     mariadb:
       enabled: true
       primary:
         persistence:
           enabled: true
-          size: 10Gi
+          size: 20Gi
   correctDrift:
     enabled: true
     force: true
