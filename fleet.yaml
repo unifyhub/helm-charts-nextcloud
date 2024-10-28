@@ -79,12 +79,15 @@ helm:
         memory: 4Gi
 
     postgresql:
-      enabled: false
+      enabled: true
       global:
         postgresql:
           auth:
-            username: uh-admin
-            password: adminpass
+            replicationPassword: 9ujmDsghBx
+            postgresPassword: adminpass
+            username: nextcloud
+            password: changeme
+          architecture: replication
   correctDrift:
     enabled: true
     force: true
