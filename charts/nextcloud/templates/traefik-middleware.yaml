@@ -1,6 +1,6 @@
 {{- if (eq .Values.ingress.className "traefik") }}
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: nextcloud-redirectregex
@@ -11,7 +11,7 @@ spec:
     replacement: "https://$1/remote.php/dav"
     permanent: true
 ---
-apiVersion: traefik.containo.us/v1alpha1
+apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: nextcloud-security-headers
