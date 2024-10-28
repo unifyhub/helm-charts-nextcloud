@@ -78,12 +78,13 @@ helm:
         cpu: 2
         memory: 4Gi
 
-    mariadb:
-      enabled: true
-      primary:
-        persistence:
-          enabled: true
-          size: 20Gi
+    postgresql:
+      enabled: false
+      global:
+        postgresql:
+          auth:
+            username: uh-admin
+            password: adminpass
   correctDrift:
     enabled: true
     force: true
