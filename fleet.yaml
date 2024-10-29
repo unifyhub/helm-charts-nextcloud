@@ -60,19 +60,20 @@ helm:
           
 
 
-    extraEnv:
-      - name: OVERWRITEHOST
-        value: "nextcloud.hub.unifyhub.dev"
-      - name: OVERWRITEPROTOCOL
-        value: "https"
-      - name: OVERWRITECLIURL
-        value: "https://nextcloud.hub.unifyhub.dev"
-      - name: OVERWRITEWEBROOT
-        value: "/"
-      - name: OVERWRITECONDADDR
-        value: "^10\\.0\\.250\\.4$"
-      - name: TRUSTED_PROXIES
-        value: "10.0.250.4"
+      extraEnv:
+        - name: OVERWRITEHOST
+          value: "nextcloud.hub.unifyhub.dev"
+        - name: OVERWRITEPROTOCOL
+          value: "https"
+        - name: overwrite.cli.url
+          value: "https://nextcloud.hub.unifyhub.dev"
+        - name: TRUSTED_PROXIES
+          value: "10.0.250.4"
+        - name: APACHE_DISABLE_REWRITE_IP
+          value: "1"
+
+      phpConfigs:
+        opcache.interned_strings_buffer: "10"
 
     resources:
       requests:
