@@ -99,7 +99,7 @@ helm:
     persistence:
       enabled: true
       # Ensure primary persistence settings
-      storageClass: "-"
+      storageClass: "nfs"
       accessMode: ReadWriteMany
       size: 10Gi
 
