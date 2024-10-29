@@ -11,7 +11,7 @@ helm:
   chart: ./charts/nextcloud
   releaseName: nextcloud
   values:
-    replicaCount: 2
+    replicaCount: 1
 
     ingress:
       enabled: true
@@ -98,17 +98,6 @@ helm:
 
     persistence:
       enabled: true
-      # Ensure primary persistence settings
-      storageClass: "nfs"
-      accessMode: ReadWriteMany
-      size: 10Gi
-
-      # Directly configure `nextcloudData` sub-volume
-      nextcloudData:
-        enabled: true
-        storageClass: "nfs"  # Specify `nfs` storage class here
-        accessMode: ReadWriteMany
-        size: 10Gi
 
   correctDrift:
     enabled: true
