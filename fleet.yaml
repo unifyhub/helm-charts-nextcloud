@@ -18,7 +18,7 @@ helm:
       className: "traefik"
       annotations:
         traefik.ingress.kubernetes.io/router.entrypoints: "websecure"
-        traefik.ingress.kubernetes.io/router.middlewares: "nextcloud-redirectregex@kubernetescrd,nextcloud-security-headers@kubernetescrd"
+        traefik.ingress.kubernetes.io/router.middlewares: "nextcloud-redirectregex@kubernetescrd,nextcloud-headers@kubernetescrd"
 
     nextcloud:
       host: nextcloud.hub.unifyhub.dev
