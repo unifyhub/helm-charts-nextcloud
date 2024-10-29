@@ -18,10 +18,13 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   headers:
-    stsSeconds: 15552000
     frameDeny: true
+    sslRedirect: true
     browserXssFilter: true
     contentTypeNosniff: true
-    forceSTSHeader: true
-    sslRedirect: true
+    stsIncludeSubdomains: true
+    stsPreload: true
+    stsSeconds: 31536000
+    customFrameOptionsValue: SAMEORIGIN
+    referrerPolicy: "no-referrer"
 {{- end }}
