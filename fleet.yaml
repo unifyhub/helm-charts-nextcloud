@@ -24,6 +24,9 @@ helm:
       host: nextcloud.hub.unifyhub.dev
       username: admin
       password: changeme  # Replace with a secure password
+      trustedDomains:
+        - localhost
+        - nextcloud.hub.unifyhub.dev
       objectStore:
         s3:
           enabled: true
