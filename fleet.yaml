@@ -113,8 +113,9 @@ helm:
       ## Requires persistence.enabled: true
       ## If defined, PVC must be created manually before volume will be bound
       # existingClaim:
+      storageClassName: nfs
       accessMode: ReadWriteMany
-      size: 20Gi
+      size: 10Gi
 
   correctDrift:
     enabled: true
