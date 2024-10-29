@@ -697,7 +697,6 @@ metrics:
     ##
     labels: {}
 
-
 rbac:
   enabled: false
   serviceaccount:
